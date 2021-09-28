@@ -2,9 +2,9 @@ OUTPUT_ARCH("riscv")
 OUTPUT_FORMAT("elf64-littleriscv")
 ENTRY(_start)
 SECTIONS {
-	/* R-X segment. */
-	/* Firmware is linked to 0x80000000. */
-	. = 0x80100000;
+	. = 0x45000000;
+
+    .init : { *(.init) *(.init.*) }
 
 	.text : { *(.text) *(.text.*) }
 

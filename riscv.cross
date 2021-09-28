@@ -1,5 +1,5 @@
 [binaries]
-c = 'riscv64-linux-gnu-gcc'
+c = 'riscv64-elf-gcc'
 
 [host_machine]
 system = 'riscv-toy-os'

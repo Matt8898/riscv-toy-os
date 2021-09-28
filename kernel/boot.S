@@ -1,15 +1,14 @@
-.section .text
-
 .global _start
+.global isr
+
+.section .init
+
 _start:
-	# a0: HART ID
-	# a1: DTB
+la sp, stack_top
+mv s9, zero
 
-	la sp, stack_top
-	mv s0, zero
-
-	jal kmain
-	unimp
+jal kmain
+unimp
 
 # void save_stack(void (*f)(void *, continuation), void *ctx)
 .global save_stack
@@ -197,5 +196,5 @@ isr:
 	unimp
 
 .section .bss
-	.space 0x10000
+    .space 0x10000
 stack_top:
